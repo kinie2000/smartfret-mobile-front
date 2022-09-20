@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>addcmd</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>ajoute une nouvelle commande</h1>
+
+  <form (ngSubmit)="saveData()" [formGroup]="registerForm">
+      <ion-input type="text" formControlName="purchase_order_number" placeholder="purchase_order_number" color="primary">
+      </ion-input>
+      <ion-input type="text" formControlName="purchase_order_title" placeholder="title" color="primary"></ion-input>
+    <ion-label>expedieur</ion-label><ion-input type="text" formControlName="expedieur" placeholder="expedieur" color="primary"></ion-input>
+        <ion-label>recepteur</ion-label>
+        <ion-input type="text" formControlName="recepteur" placeholder="recepteur" color="primary"></ion-input>
+    <ion-input type="text" formControlName="choix" placeholder="choix" color="primary"></ion-input>
+      <ion-input type="text" formControlName="packet_title"   placeholder="title"color="primary"></ion-input>
+        <ion-input type="text" formControlName="divisor_value"  placeholder="divisor_value" color="primary"></ion-input>
+      <ion-input type="text" formControlName="packet_length"  placeholder="hauteur"color="primary"></ion-input>
+        <ion-input type="text" formControlName="packet_width"  placeholder="longueur"></ion-input>
+          <ion-input type="text" formControlName="packet_heigth"  placeholder="largeur"></ion-input>
+            <ion-input type="text" formControlName="number"  placeholder="nbr"></ion-input>
+              <ion-input type="text" formControlName="packet_price" placeholder="packet_price"></ion-input>
+            <label>type de colid</label><br>
+      <input type="radio" value="dimension" formControlName="Typecoli" placeholder="dimension" (click)="evtAddcoli('dimension')" ><label for="">dimension</label>
+      <input type="radio" value="prix" formControlName="Typecoli" placeholder="dimension" (click)="evtAddcoli('prix')" ><label for="">prix</label>
+      <input type="radio" value="standard" formControlName="Typecoli" placeholder="dimension" (click)="evtAddcoli('standard')" ><label for="">standard</label><br>
+    
+
+      <ion-label>expedieur</ion-label>
+      <ion-input type="text" formControlName="expedieur" placeholder="expedieur" color="primary"></ion-input>
+      <ion-label>recepteur</ion-label>
+      <ion-input type="text" formControlName="recepteur" placeholder="recepteur" color="primary"></ion-input>
+  
+
+    <ion-label>paiement</ion-label><br>
+
+        <input type="radio" value="cartebleue" formControlName="modepay"(click)="paie('cartebleue')"><label for="">carte bleue</label>
+        <input type="radio" value="espece" formControlName="modepay"  (click)="paie('espece')"><label for="">Espèce</label>
+        <input type="radio" value="cheque" formControlName="modepay"   (click)="paie('cheque')"><label for="">chéque</label>
+        <ion-input type="text" formControlName="montant_recu"  placeholder="montant recu"></ion-input>
+
+            <ion-button (click)="addcoli()">add coli</ion-button>
+              <ion-button type="submit"color="primary" >valider</ion-button>
+  </form>
+  <div *ngIf="registerForm.get('Typecoli').value">
+
+  </div>
+
+</ion-content>

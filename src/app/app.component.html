@@ -1,0 +1,79 @@
+<ion-app>
+    <ion-split-pane when="md" contentId="main-content">
+        <ion-menu side="start" #open contentId="main-content" type="overlay" *ngIf="user">
+            <ion-content>
+                <!-- Settings Toolbar -->
+                <ion-header>
+                    <ion-item class="transparent ion-text-center" lines="none">
+                        <ion-label class="ion-text-center">
+                            <ion-row>
+                                <ion-col>
+                                    <img class="ion-margin-bottom" [src]="headerMenuItem.image">
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col class="">
+                                    <h1 class="text-color-light" [ngStyle]="{'font-size':'20px'}">
+                                        {{headerMenuItem.title}}</h1>
+                                </ion-col>
+                            </ion-row>
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-item class="transparent " lines="none">
+                        <ion-grid>
+                            <ion-row class="ion-text-center">
+                                <ion-col>
+                                    <ion-icon name="notifications-outline" class="text-color-light"
+                                        [ngStyle]="{'font-size':'20px'}">
+                                    </ion-icon><br>
+                                    <ion-text class="txt1">Notification</ion-text>
+                                </ion-col>
+                                <ion-col>
+                                    <ion-icon class="text-color-light" [ngStyle]="{'font-size':'20px'}"
+                                        name="person-sharp" (click)="openPage('profilsUser')" routerDirection="forward">
+                                    </ion-icon><br>
+                                    <ion-text class="txt1">Mon profil</ion-text>
+                                </ion-col>
+                                <ion-col class="ion-align-self-end ">
+                                    <ion-icon name="power" class="icon-off" size="12" button="true" (click)="loggout()">
+                                    </ion-icon><br>
+                                    <ion-text class="txt1">On/Off</ion-text>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-item>
+                </ion-header>
+                <!-- Content -->
+
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="12">
+                            <!-- Menu List -->
+                            <ion-list>
+                                <ion-menu-toggle translate auto-hide="false" *ngFor="let p of appPages">
+                                    <ion-item lines="none" class="transparent ionItem" (click)="openPage(p)"
+                                        *ngIf="p.show">
+                                        <ion-label>
+                                            <p class="text-size-md font-regular text-color-light">{{p.title}}</p>
+                                        </ion-label>
+                                        <ion-icon slot="end" class="icon-color-light" [name]="p.icon"></ion-icon>
+                                    </ion-item>
+                                </ion-menu-toggle>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-content>
+            <ion-footer>
+                <ion-toolbar>
+                    <p class="ion-text-center custom-font">
+                        Copyright © 2022 V1.0 All rights reserved <br>
+                        {{headerMenuItem.telephone}} / {{headerMenuItem.email}}
+                    </p>
+                </ion-toolbar>
+            </ion-footer>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

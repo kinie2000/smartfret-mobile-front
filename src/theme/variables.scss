@@ -1,0 +1,870 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+//////////////////////////////////////////////////
+
+// Theme: Ionic UI Theme/Template App - Atom
+// Web Site: https://devspush.com/
+// Author: DEVSPUSH
+// Email support:  team@devspush.com or decouikit@gmail.com
+
+//////////////////////////////////////////////////
+:root {
+   /* Settings Fonts Size And Icon Size
+    =======================================================
+    =======================================================*/
+    --fallback-color: red;
+    --h1-font-size: 24px;
+    --h2-font-size: 18px;
+    --h3-font-size: 16px;
+    --h4-font-size: 14px;
+    --h5-font-size: 12px;
+    --h6-font-size: 10px;
+    --text-font-size: 12px;
+
+    /* Settings Fonts Size Icon
+    =======================================================
+    =======================================================*/
+    --icon-size-small: 20px;
+    --icon-size-medium: 32px;
+    --icon-size-large: 60px;
+
+    /* Settings Font Span
+    =======================================================
+    =======================================================*/
+    --span-size-small: 12px;
+    --span-size-medium: 24px;
+    --span-size-large: 30px;
+
+    /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+    --dv-background-primary-basic: #F6F8FA;
+    --dv-background-primary: #fff; 
+    --dv-background-secondary: #1DB293;
+    --dv-background-tertiary: #77D0BE;
+    --dv-background-accent-light: #5C6569;
+    --dv-background-accent: #056BFF;
+    --dv-background-accent-dark: #263238;
+
+    /* Settings Border Color
+    =======================================================
+    =======================================================*/
+    --dv-background-border: #E8EDF2;
+
+    /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+    --dv-text-primary: #0E213D;
+    --dv-text-secondary: #556783;
+    --dv-text-accent: #056BFF;
+    --dv-text-light: #fff;
+
+
+    /* Settings Size Avatar
+    =======================================================
+    =======================================================*/
+    --size-avatar: 40px;
+
+    /* Settings Size Thumbnail
+  =======================================================
+  =======================================================*/
+    --size-thumbnail: 100px;
+
+    /* Settings Border Radius
+    =======================================================
+    =======================================================*/
+    --border-radius: 4px;
+
+    /* Settings Color Icon
+    =======================================================
+    =======================================================*/
+    --dv-icon-color-primary: #556783;
+    --dv-icon-color-secondary: #1DB293;
+    --dv-icon-color-accent: #056BFF;
+    --dv-icon-color-accent-dark: #0E213D;
+    --dv-icon-color-light: #fff;
+}
+
+/* INCLUDE FONTS AND COLOR COMBINATION
+=======================================================
+=======================================================*/
+
+@import "themes-color/main-color";
+@import "themes-color/green";
+@import "themes-color/orange";
+@import "themes-color/purple";
+@import "themes-color/red";
+@import "themes-color/teal";
+
+
+/* INCLUDE FONTS
+=======================================================
+=======================================================*/
+@import "fontello";
+@import "roboto";
+
+
+/* INCLUDE RTL MODE
+=======================================================
+=======================================================*/
+@import "rtl";
+
+body {
+  --ion-font-family: 'Roboto', sans-serif;
+}
+
+ion-avatar {
+  height: var(--size-avatar);
+  width: var(--size-avatar);
+}
+
+/* Setting Thumbnail
+=======================================================
+=======================================================*/
+
+ion-thumbnail {
+  height: var(--size-thumbnail, 100px);
+  width: var(--size-thumbnail, 100px);
+}
+
+/* SETTINGS ION-HEADER
+=======================================================
+=======================================================*/
+
+.header-md:after {
+  background-image: none !important;
+}
+
+/* SETTINGS MARGIN
+=======================================================
+=======================================================*/
+.ion-no-margin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* SETTINGS TOOLBAR
+=======================================================
+=======================================================*/
+
+ion-toolbar {
+  --background: var(--dv-background-accent, #056BFF);
+  --color: #fff;
+
+  [slot=start] {
+    margin-inline-end: 0;
+  }
+
+  ion-menu-button,
+  ion-back-button{
+    --color: #fff !important;
+  }
+
+  ion-title {
+      font-weight: 400 !important;
+      font-size: var(--h3-font-size) !important;
+  }
+}
+
+/* SETTINGS TEXT FONT SIZE
+=======================================================
+=======================================================*/
+
+.text-size-xl {
+  font-size: var(--h1-font-size, 24px) !important;
+  line-height: 29px;
+}
+
+.text-size-lg {
+  font-size: var(--h2-font-size, 18px) !important;
+  line-height: 27px;
+}
+
+.text-size-md {
+  font-size: var(--h3-font-size, 16px) !important;
+  line-height: 22px;
+}
+
+.text-size-xs {
+  font-size: var(--h4-font-size, 14px) !important;
+  line-height: 20px;
+}
+
+.text-size-sm {
+  font-size: var(--h5-font-size, 12px) !important;
+  line-height: 18px;
+}
+
+.text-size-sd {
+  font-size: var(--h6-font-size, 10px) !important;
+  line-height: 18px;
+}
+
+.text-size-p {
+  font-size: var(--text-font-size, 12px) !important;
+  line-height: 20px;
+}
+
+.text-nowrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* SETTINGS TEXT FONT WEIGHT
+=======================================================
+=======================================================*/
+
+.font-light {
+  font-weight: 300 !important;
+}
+
+.font-regular {
+  font-weight: 400 !important;
+}
+
+.font-medium {
+  font-weight: 500 !important;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+/* SETTINGS BACKGROUND
+=======================================================
+=======================================================*/
+
+.color-basic {
+  --background: var(--dv-background-primary);
+  --background-hover: var(--dv-background-primary) !important;
+}
+
+.color-primary {
+  --background: var(--dv-background-secondary, #1DB293);
+  --background-hover:  var(--dv-background-secondary, #1DB293) !important;
+}
+
+.color-accent-light {
+  --background: var(--dv-background-accent-light, #465055);
+  --background-hover: var(--dv-background-accent-light, #465055) !important;
+}
+
+.color-accent {
+  --background: var(--dv-background-accent);
+  --background-hover:  var(--dv-background-accent) !important;
+}
+
+.color-accent-dark{
+  --background:  var(--dv-background-accent-dark) !important;
+  --background-hover:  var(--dv-background-accent-dark) !important;
+}
+
+.color-accent-tertiary{
+  --background:  var(--dv-background-tertiary) !important;
+  --background-hover:  var(--dv-background-tertiary) !important;
+}
+
+/* SETTINGS TEXT COLOR
+=======================================================
+=======================================================*/
+
+.text-color-primary {
+  color: var(--dv-text-primary, #0E213D) !important;
+}
+
+.text-color-secondary {
+  color: var(--dv-text-secondary, #556783) !important;
+}
+
+.text-color-accent {
+  color: var(--dv-text-accent, #056BFF) !important;
+}
+
+.text-color-light {
+  color: var(--dv-text-light, #fff) !important;
+}
+
+.error-color {
+  color: red !important;
+}
+
+/* SETTINGS ICON COLOR
+=======================================================
+=======================================================*/
+
+.icon-color-primary {
+  color: var(--dv-icon-color-primary, #556783) !important;
+}
+
+.icon-color-secondary {
+  color: var(--dv-icon-color-secondary, #1DB293) !important;
+}
+
+.icon-color-accent {
+  color: var(--dv-icon-color-accent, #056BFF) !important;
+}
+
+.icon-color-accent-dark {
+  color: var(--dv-icon-color-accent-dark, #0E213D) !important;
+}
+
+.icon-color-light {
+  color: var(--dv-icon-color-light, #fff) !important;
+}
+
+.icon-round {
+  background-color: var(--dv-background-accent);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+ion-icon.active {
+  color: var(--dv-icon-color-accent) !important;
+}
+
+
+/* SETTINGS ICON FONT
+=======================================================
+=======================================================*/
+.icon-font-xl {
+  font-size: var(--icon-size-extra-large, 48px) !important;
+}
+
+.icon-font-lg {
+  font-size: var(--icon-size-large, 32px) !important;
+}
+
+.icon-font-md {
+  font-size: var(--icon-size-medium, 22px) !important;
+}
+
+.icon-font-sm {
+  font-size: var(--icon-size-small, 17px) !important;
+}
+
+
+/* SETTINGS ITEM
+=======================================================
+=======================================================*/
+
+ion-item {
+  --background-hover: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --ripple-color: transparent;
+}
+
+.default-item {
+  --background-hover: transparent;
+  --background: var(--dv-background-primary);
+    background: var(--dv-background-primary);
+  --min-height: 70px;
+    overflow: hidden;
+}
+
+/* SETTINGS COLOR BACKGROUND OUR APP
+=======================================================
+=======================================================*/
+ion-content {
+  --background: var(--dv-background-primary-basic);
+}
+
+ion-list {
+  background: var(--dv-background-primary-basic) !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.ion-padding-list {
+  padding: 10px;
+}
+
+.ion-padding-grid {
+  padding: 10px !important;
+}
+
+/* SETTINGS ITEM SLIDING
+=======================================================
+=======================================================*/
+ion-item-option {
+  --background: var(--dv-background-primary-basic) !important;
+  --color: transparent;
+  font-size: 24px;
+  width: 140px;
+
+  &.item-options-ios {
+    border-bottom-width: 0 !important;
+  }
+}
+
+/* # Settings Span Components
+================================================
+================================================*/
+.span-small{
+  color: var(--dv-text-secondary);
+  font-size: var(--h4-font-size);
+}
+
+.span-medium{
+  color: var(--dv-text-secondary);
+  font-size: var(--h1-font-size);
+}
+
+.span-large{
+  color: var(--dv-text-secondary);
+  font-size: 30px !important;
+}
+
+/* SETTINGS BUTTON SIZE
+=======================================================
+=======================================================*/
+
+.default-button {
+    --color: var(--dv-text-light);
+    --color-hover:  var(--dv-text-light) !important;
+    --color-activated: var(--dv-text-light);
+    --color-focused: var(--dv-text-light);
+    --padding-top: 13px;
+    --padding-bottom: 13px;
+    --padding-start: 15px;
+    --padding-end: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    height: auto;
+    border-radius: 4px;
+    text-transform: capitalize;
+}
+
+.button-small {
+  --color: var(--dv-text-light);
+  --color-hover:  var(--dv-text-light) !important;
+  --color-activated: var(--dv-text-light);
+  --color-focused: var(--dv-text-light);
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 13px;
+  --padding-end: 13px;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+ion-button {
+  --ripple-color: transparent;
+  --color-focused: transparent;
+  --opacity: 1;
+}
+
+ion-ripple-effect {
+    color: transparent;
+}
+
+.round {
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  text-transform: capitalize;
+  font-weight: 500 !important;
+
+}
+
+.button-icon {
+  --background: transparent !important;
+  --color:#556783 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  --background-hover: transparent;
+  --color-hover: trensparent !important;
+  --color-activated: trensparent !important;
+  --color-focused: trensparent !important;
+  --box-shadow: none;
+
+  [slot=start] {
+    margin-inline-end: 8px !important;
+    margin-left: 0;
+  }
+
+  [slot=end] {
+    margin-inline-start: 8px !important;
+  }
+}
+
+ion-fab-button {
+  --background-focused: transparent !important;
+  --background-hover: transparent !important;
+  --color-hover: var(--dv-background-accent, #0090d0) !important;
+  --color-activated: var(--dv-background-accent, #0090d0) !important;
+  --color-focused: var(--dv-background-accent, #0090d0) !important;
+  --background: transparent;
+  --color: var(--dv-background-accent, #0090d0);
+  --box-shadow: none;
+  --ripple-color: rgba(0, 0, 0, 0.1);
+}
+
+.button-clear {
+  --background: transparent;
+  --color: var(--dv-text-secondary, #0090d0) !important;
+  --background-hover: transparent !important;
+  --color-hover: var(--dv-text-secondary, #0090d0)!important;
+  --color-activated: var(--dv-text-secondary, #0090d0)!important;
+  --color-focused: var(--dv-text-secondary, #0090d0)!important;
+  --box-shadow: none;
+}
+
+/* SETTINGS INPUT FIELD
+=======================================================
+=======================================================*/
+.input {
+  --placeholder-color: var(--dv-text-secondary) !important;
+  --color: var(--dv-text-secondary) !important;
+  --placeholder-opacity: 1 !important;
+
+  ion-label {
+    --color: var(--dv-text-secondary) !important;
+    font-size: 14px;
+  }
+
+  --highlight-height: 1px !important;
+  --highlight-color-focused: #CFE1F2 !important;
+  --highlight-color-valid: #CFE1F2 !important;
+  --highlight-color-invalid: #CFE1F2 !important;
+  --highlight-background: #CFE1F2 !important;
+
+  .icon-small {
+    color: red;
+  }
+}
+
+/* SETTINGS CHECK BOX
+=======================================================
+=======================================================*/
+ion-checkbox{
+  --background-checked:  var(--dv-background-accent);
+  --border-color-checked: var(--dv-background-accent);
+  --border-color: var(--dv-background-accent);
+}
+
+/* SETTINGS TOOGLE
+=======================================================
+=======================================================*/
+ion-toggle {
+  --background: #CFE1F2;
+  --background-checked: var(--dv-background-accent);
+  --handle-background: #fff;
+  --handle-background-checked: #fff;
+}
+
+/* SETTINGS RADIO
+=======================================================
+=======================================================*/
+ion-radio {
+  --color: var(--dv-background-accent);
+  --color-checked: var(--dv-background-accent);
+}
+
+/* SETTINGS TABS
+=======================================================
+=======================================================*/
+ion-tab-bar {
+  --background: var(--dv-background-accent-dark);
+}
+
+ion-tab-button {
+  --color: #CFE1F2;
+  --color-selected: #ffffff;
+  --ripple-color: rgba(0, 0, 0, 0);
+
+  .ripple-effect {
+    display: none !important;
+  }
+}
+
+
+/* SETTINGS SEARCHBAR
+=======================================================
+=======================================================*/
+ion-searchbar {
+  --background: var(--dv-background-primary) !important;
+  --cancel-button-color: #556783 !important;
+  --clear-button-color: #556783 !important;
+  --color: #556783 !important;
+  --icon-color: #556783 !important;
+  --placeholder-color: #556783 !important;
+  --placeholder-opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+/* SETTINGS RANGE
+=======================================================
+=======================================================*/
+ion-range {
+  --knob-background: var(--dv-background-accent);
+  --bar-background-active: var(--dv-background-accent);
+  --bar-background: rgba(92, 101, 105, 0.3);
+  --pin-background: var(--dv-background-accent);
+  --knob-size: 22px !important;
+
+  .iconSizeSmall {
+    font-size: 35px;
+    color: #778494;
+  }
+
+  .iconSizeBig {
+    font-size: 40px;
+    color: #778494;
+  }
+}
+
+/* SETTINGS ION-BADGE
+=======================================================
+=======================================================*/
+ion-badge {
+  --background: var(--dv-background-border);
+  --color: #0E213D;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 16px;
+}
+
+
+/* SETTINGS ION-CHIP
+=======================================================
+=======================================================*/
+ion-chip ion-avatar {
+  height: 22px;
+  width: 22px;
+}
+
+/* SETTINGS ACTION SHEET
+=======================================================
+=======================================================*/
+
+ion-action-sheet {
+
+  .action-sheet-button {
+  color: var(--cs-text-primary) !important;
+  }
+}
+
+/* SETTINGS ALERT BUTTON GROUP
+=======================================================
+=======================================================*/
+
+.alert-button-group {
+  .alert-button {
+    color: var(--dv-text-accent) !important;
+  }
+}
+
+[aria-checked=true] .alert-checkbox-icon{
+  border-color: var(--dv-background-accent) !important;
+    background-color: var(--dv-background-accent) !important;
+}
+
+[aria-checked=false] .alert-checkbox-icon,
+[aria-checked=false] .alert-radio-icon {
+  border-color: var(--dv-background-accent);
+} 
+
+[aria-checked=true] .alert-radio-icon{
+  border-color: var(--dv-background-accent) !important;
+}
+
+[aria-checked=true] .alert-radio-inner {
+  background-color: var(--dv-background-accent) !important;
+} 
+
+/* SETTINGS WIZARD
+=======================================================
+=======================================================*/
+
+cs-wizard-layout-1 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 20px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    --bullet-background: #fff !important;
+    background: var(--bullet-background);
+
+  }
+}
+
+cs-wizard-layout-2 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--dv-background-accent) !important;
+    background: var(--bullet-background);
+  }
+}
+
+cs-wizard-layout-3 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--dv-background-accent) !important;
+    background: var(--bullet-background);
+
+  }
+}
+
+cs-wizard-layout-4 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--dv-background-accent) !important;
+    background: var(--bullet-background);
+
+  }
+}
+
+cs-profile-layout-2 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: -35px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--dv-background-accent, #0090d0);
+  }
+}
+
+cs-profile-layout-4 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: -25px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--dv-background-accent, #0090d0);
+  }
+}
+
+cs-tab-layout-1, cs-tab-layout-3 {
+  .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    --bullet-background: var(--dv-background-accent) !important;
+    background: var(--bullet-background);
+
+  }
+}
+
+/* Black&White Avatar and Image
+=======================================================
+=======================================================*/
+
+img {
+  object-fit: cover;
+}
+
+/* Default Overview Ionic Section
+=======================================================
+=======================================================*/
+.background-size {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+[slot=start] {
+  margin-right: unset;
+  margin-inline-end: 16px;
+}
+
+[slot="end"] {
+  margin-left: unset;
+  margin-inline-start: 16px;
+}
+
+
+.background-white {
+  background-color: #fff;
+}
+
+.no-padding-start {
+  padding-left: 0;
+}
+
+.no-padding-end {
+  padding-right: 0;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+
+.padding-half {
+  padding: 8px;
+}
+
+.no-margin-start {
+  margin-left: 0
+}
+
+.no-margin-end {
+  margin-right: 0;
+}
+
+.margin-half {
+  margin: 8px;
+}
+
+.border {
+  border: 1px solid var(--dv-background-border);
+}
+
+.border-radius {
+  border-radius: 4px;
+}
+
+.no-border-radius {
+  border-radius: 0 !important;
+}
+
+.transparent{
+  --background: transparent !important;
+  background: var(--background)
+}
+
+/* SETTINGS BOX SHADOW
+=======================================================
+=======================================================*/
+
+.box-shadow-small {
+  --box-shadow: 0 3px 5px rgba(11, 33, 65, 0.3) !important;
+  z-index: 999;
+}
+
+.box-shadow {
+  --box-shadow: 0 5px 15px rgba(11, 33, 65, 0.3) !important;
+  z-index: 999;
+}
+
+.no-box-shadow {
+  box-shadow: none !important;
+  --box-shadow: none !important;
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+}

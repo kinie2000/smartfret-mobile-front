@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/SmartFret" *ngIf="!user"></ion-back-button>
+      <ion-menu-button *ngIf="user"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Suivre Un Envoi de Colis</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+</ion-header>
+
+<ion-content>
+  <div class="content1" [ngStyle]="{'height': !coliscur?'100%':'700px'}">
+    <ion-grid>
+      <ion-row>
+
+        <ion-col class="ion-no-padding" size="12" size-lg="12">
+          <div class="card" [ngStyle]="{'transform':coliscur ? 'translateY(10px)':'translateY(72px)'}">
+            <ion-card class="background-size no-box-shadow border ion-text-center">
+              <ion-card-content *ngIf="!coliscur && !error && !suspect">
+                <div class="img1">
+                  <img src="{{commandIcon}}" class="imgColis">
+                </div>
+                <ion-text class="ion-text">
+                  Renseigner le n° de votre colis de 12 à 13 caractères
+                </ion-text>
+              </ion-card-content>
+              <div class="search">
+                <ion-searchbar type="cc-number" (ionChange)="recherche($event)" debounce="1000"></ion-searchbar>
+              </div>
+
+            </ion-card>
+            <ion-card class="contenu_vrai" *ngIf="coliscur">
+              <ion-card-content>
+                <div [ngStyle]="{'text-align':'center'}">
+                  <div class="img1">
+                    <img src="{{commandIcons}}" width="50%" height="50%">
+                  </div>
+                  <p>
+                    <ion-text>N°_{{coliscur.packet_code_bar}}</ion-text>
+                  </p>
+                  <p>
+                    <ion-text color="primary">{{coliscur.packet_title}}</ion-text>
+                  </p>
+
+                </div>
+                <ion-item>
+                  <ion-label>Expédié par</ion-label>
+                  <ion-text></ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Status</ion-label>
+                  <ion-text>{{coliscur.packet_status}}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Prix</ion-label>
+                  <ion-text>{{coliscur.packet_price}}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Actuellement à</ion-label>
+                  <ion-text>{{coliscur.packet_location}}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Enregisté le </ion-label>
+                  <ion-text>{{coliscur.created_at | date:'short'}}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Voiture </ion-label>
+                  <ion-text>{{varcars}}</ion-text>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Numéro </ion-label>
+                  <ion-text>{{coliscur.number}} colis</ion-text>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card class="background-size no-box-shadow border ion-text-center" *ngIf="error||suspect">
+              <ion-card-content>
+                <div class="img1" *ngIf="suspect">
+                  <img [src]="commandSucpect" class="imgColisError" [ngStyle]="{'width': '50%'}">
+                </div>
+                <div class="img1" *ngIf="error">
+                  <img [src]="commandError" class="imgColisError" [ngStyle]="{'width': '50%'}">
+                </div>
+                <ion-text class="ion-text" [ngStyle]="{'font-size': '24px'}" *ngIf="suspect">
+                  <ion-icon name="alert-outline" color="danger"></ion-icon> Colis Inexistant
+                </ion-text>
+                <ion-text class="ion-text" [ngStyle]="{'font-size': '15px'}" *ngIf="error">
+                  Le numéro de colis entré ci-dessous est erroné<br>
+                  <em>{{valeur}}</em><br>
+                  Veuillez renseigner un numéro de colis de 12 à 13 caractères
+                </ion-text>
+              </ion-card-content>
+            </ion-card>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">
+      Copyright © 2022 SMARTFRET TRANSPORT /V2.0/ All rights reserved
+    </p>
+  </ion-toolbar>
+</ion-footer>

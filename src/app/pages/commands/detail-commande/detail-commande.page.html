@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="backbtn" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail de la commande</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+</ion-header>
+
+<ion-content *ngIf="currentCommands">
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
+</ion-refresher>
+  <ion-card>
+    <ion-img src="{{commandIcon}}"> </ion-img>
+    <ion-card-header class="ion-text-center">
+      <!-- statut:<ion-card-title>{{currentCommands.container_status | uppercase}}</ion-card-title>
+     <ion-progress-bar color="secondary"  value={{valeur_statut}} buffer={0.5}></ion-progress-bar>
+     <ion-progress-bar color="secondary" value={{valeur_statut}} buffer={0.5}></ion-progress-bar>
+     <ion-progress-bar color="secondary"  value={{valeur_statut}} buffer={0.5}></ion-progress-bar>
+     <ion-progress-bar color="secondary" value={{valeur_statut}} buffer={0.5}></ion-progress-bar>
+     <ion-progress-bar color="secondary"  value={{valeur_statut}} buffer={0.5}></ion-progress-bar> -->
+
+      <span>Numero de bon de commande</span><br>
+      <ion-card-title color="primary">{{currentCommands.purchase_order_number}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>Nombre de paquet:</ion-label><br> {{currentCommands.purchase_order_number_packet}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Description:</ion-label><br>{{currentCommands.purchase_order_description}}
+      </ion-item>
+      <ion-item>
+        <ion-label>prix total:</ion-label><br>{{currentCommands.total_amount | currency:'EUR' }}
+      </ion-item>
+      <ion-item>
+        <ion-label>Date de la commande:</ion-label><br>{{currentCommands.purchase_order_date | date:'shortDate'}}
+      </ion-item>
+      <ion-item>
+        <ion-label>le recepteur:</ion-label><br>{{currentCommands.receiver.receiver_name}}
+      </ion-item>
+
+      <div id="faq">
+        <ul>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <ion-text>
+              <span class="hi">Détails financières</span>
+            </ion-text>
+            <ion-list class="p">
+              <ion-item>
+                <ion-label>prix total:</ion-label><br>{{currentCommands.total_amount | currency:'EUR' }}
+              </ion-item>
+              <ion-item>
+                <ion-label>montant soldé:</ion-label><br>{{currentCommands.has_paid | currency:'EUR' }}
+              </ion-item>
+              <ion-item>
+                <ion-label>reste:</ion-label><br>{{currentCommands.rest | currency:'EUR' }}
+              </ion-item>
+            </ion-list>
+          </li>
+
+        </ul>
+      </div>
+
+      <div id="faq">
+        <ul>
+          <li>
+            <input type="checkbox" checked>
+            <i></i>
+            <ion-text>
+              <span class="hi">listes des paquets</span>
+            </ion-text>
+            <ion-grid fixed class="p" [ngStyle]="{'background':'white'}">
+              <ion-row *ngFor="let j of paquet" class="item_pack">
+                <ion-col size-md>
+                  <ion-text class="text1">{{j.number}}</ion-text>
+                  <ion-text class="text2">{{j.packet_title}}</ion-text> <br>
+                  <ion-text color="danger" class="text3"
+                    *ngIf="j.packet_status=='Inscrit' || j.packet_status=='ARRIVE ET EN PROCEDURE DE DEDOUANEMENT'">
+                    {{j.packet_status}}</ion-text>
+                  <ion-text color="warning" class="text3"
+                    *ngIf="j.packet_status=='CHARGER' || j.packet_status=='EN COURS DE CHARGEMENT'">
+                    {{j.packet_status}}
+                  </ion-text>
+                  <ion-text color="secondary" class="text3" *ngIf="j.packet_status=='EN COURS ACHEMINEMENT'">
+                    {{j.packet_status}}
+                  </ion-text>
+                  <ion-text color="warning" class="text3"
+                    *ngIf="j.packet_status=='DECHARGER' || j.packet_status=='EN COURS DE DECHARGEMENT'">
+                    {{j.packet_status}}</ion-text>
+                  <ion-text color="success" class="text3"
+                    *ngIf="j.packet_status=='DECHARGER ET EN COURS DE LIVRAISON' || j.packet_status=='LIVRER'">
+                    {{j.packet_status}}</ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </li>
+
+        </ul>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">
+      Copyright © 2022 SMARTFRET TRANSPORT /V2.0/ All rights reserved
+    </p>
+  </ion-toolbar>
+</ion-footer>

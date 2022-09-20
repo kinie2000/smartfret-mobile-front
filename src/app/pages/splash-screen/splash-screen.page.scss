@@ -1,0 +1,133 @@
+/* Style component 1
+========================================================*/
+
+main{
+  background-color: blanchedalmond;
+}
+
+ion-content,
+ion-grid,
+ion-row{
+  height: 100%;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #263238 !important;
+}
+
+ion-col{
+   background: #263238 !important;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.animation-me {
+  -webkit-animation: animation 600ms;
+  -webkit-animation-fill-mode: forwards;
+  animation: animation 100ms;
+  animation-delay: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.animation-btn1 {
+  -webkit-animation: animation 700ms;
+  -webkit-animation-fill-mode: forwards;
+  animation: animation 400ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+.animation-btn2 {
+  -webkit-animation: animations 600ms;
+  -webkit-animation-fill-mode: forwards;
+  animation: animation 400ms;
+  animation-delay: 1300ms;
+  animation-fill-mode: forwards;
+}
+
+.animation-p {
+  -webkit-animation: animation 600ms;
+  -webkit-animation-fill-mode: forwards;
+  animation: animation 400ms;
+  animation-delay: 1500ms;
+  animation-fill-mode: forwards;
+}
+
+.phoneText {
+  -webkit-animation: animation 600ms;
+  -webkit-animation-fill-mode: forwards;
+  animation: animation 400ms;
+  animation-delay: 1500ms;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+// .phoneText:hover
+// {
+//   color: #003799;
+// }
+
+ 
+
+h1,h6,.btn1,.btn2,P,.phoneText {
+  opacity: 0;
+}
+
+
+div
+{
+    text-align: center;
+     background: #263238 !important;
+    img {
+    width:  125px;
+    height: 50%;
+    object-fit: inherit;
+    object-position: inherit;
+    // margin-top: -92px;
+    opacity: 0;
+  }
+
+  h1{
+      font-size: 25px;
+  }
+}
+
+.div1
+{
+  margin: 40px;
+}
+
+.btn1
+{
+  background: #003799 !important
+}
+
+
+ion-toolbar {
+    --background: var(--dv-background-accent-dark) !important;
+    ion-title{
+      text-align: justify;
+    }
+  }
+

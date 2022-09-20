@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "30004979587",
+    "firebase_url": "https://ionic-molecule-devspush.firebaseio.com",
+    "project_id": "ionic-molecule-devspush",
+    "storage_bucket": "ionic-molecule-devspush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30004979587:android:a4e31b4f87a0fa9fc478b6",
+        "android_client_info": {
+          "package_name": "com.devspush.Molecule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30004979587-ne5uabc9pmesrk35jpt14tulb3m2aut3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhy_5GKHkDoBULadf3eI2Rz-IpBCP00lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30004979587-ne5uabc9pmesrk35jpt14tulb3m2aut3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

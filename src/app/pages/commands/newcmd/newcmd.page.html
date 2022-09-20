@@ -1,0 +1,251 @@
+<ion-header  translucent="true" >
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="//admin-dcb" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nouvelle commande</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="contenu">
+  <form (ngSubmit)="saveData()" [formGroup]="registerForm">
+        <ion-item class="ion-no-padding transparent input">
+          <ion-label position="floating">Description de la commande *</ion-label>
+          
+              <ion-input type="text" formControlName="purchase_order_description"  color="primary" autofocus="true"></ion-input>
+             
+        </ion-item>
+   
+    <div class="info-perso">
+      <h1><ion-icon name="person-circle-outline" slot="star"></ion-icon>Information personnelle</h1>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="openModal()" fill="clear"><ion-icon name="add-circle-outline"></ion-icon>ajouter un client</ion-button>
+          <ion-item class="ion-no-padding transparent input">
+            <ion-label position="floating">Expediteur *</ion-label>
+            
+          <ion-input type="text" formControlName="costumer_name"  color="primary"
+            (ionChange)="autocompleteClt($event)" class="ionInput" placeholder=""></ion-input>
+          <ion-list [hidden]="items.length<=0">
+            <ion-item *ngFor="let item of items" (click)=" selectuser(item)">
+              {{item.customer_name}}..{{item.customer_surname}}
+            </ion-item>
+          </ion-list>
+          </ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('costumer_name').touched && registerForm.controls.costumer_name.hasError('required')">{{'Champs
+          requis'}}</span>
+      </ion-text>
+        </ion-col>
+          <ion-col>
+            <ion-button fill="clear" (click)="openModal2()"><ion-icon name="add-circle-outline"></ion-icon>ajouter un receveur</ion-button>
+          <ion-item class="ion-no-padding transparent input">
+          <ion-label position="floating">recepteur *</ion-label>
+          <ion-input type="text" formControlName="recepteur" color="primary"
+            (ionInput)="autocompleteRec($event)"class="ionInput" placeholder="" [disabled]="recStyle" debounce="1000"></ion-input>
+          <ion-list [hidden]="items.length<=0">
+            <ion-item *ngFor="let item of items" (click)=" selectrecei(item)" >
+              {{item.receiver_name}}..{{item.receiver_surname}}
+            </ion-item>
+          </ion-list>
+          </ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('recepteur').touched && registerForm.controls.recepteur.hasError('required')">{{'Champs
+          requis'}}</span>
+      </ion-text>
+        </ion-col>
+        </ion-row>
+      </ion-grid>
+ 
+  
+
+    </div>
+   
+    <div class="info-typecolis">
+      <h1><ion-icon name="clipboard-outline" slot="star"></ion-icon>Type de colis</h1>
+      
+      <div class="typedecolis">
+        <input type="radio" value="dimension" formControlName="Typecoli" placeholder="dimension"
+          (click)="evtAddcoli('dimension')" class="clasColi"><label for="">dimension</label>
+        <input type="radio" value="prix" formControlName="Typecoli" placeholder="dimension" (click)="evtAddcoli('prix')"class="clasColi"><label
+          for="">prix</label>
+        <input type="radio" value="standard" formControlName="Typecoli" placeholder="dimension"
+          (click)="evtAddcoli('standard')"class="clasColi"><label for="">colis standard</label>
+            <ion-list [hidden]="standard.length<=0">
+              <ion-item *ngFor="let item of standard" (click)=" selectStand(item)">
+                {{item.name_standard}}
+              </ion-item>
+            </ion-list>
+            </div>
+            <ion-item class="ion-no-padding transparent input">
+              <ion-label position="floating">titre du paquet *</ion-label>
+              <ion-input type="text" formControlName="packet_title" color="primary" (ionChange)="f()"></ion-input>
+            </ion-item>
+            <ion-text color="danger" class="text-error">
+              <span
+                *ngIf="registerForm.get('packet_title').touched && registerForm.controls.packet_title.hasError('required')">{{'Champs
+                requis'}}</span>
+            </ion-text>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item class="ion-no-padding transparent input">
+        <ion-label position="floating">largeur</ion-label>
+      <ion-input type="text" formControlName="packet_heigth" placeholder="" [disabled]="largeur"></ion-input>
+    </ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('packet_heigth').touched && registerForm.controls.packet_heigth.hasError('required')">{{'Champs
+          requis'}}</span><span *ngIf="registerForm.get('packet_width').invalid && registerForm.get('packet_width').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+    </ion-col>
+    <ion-col><ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">divisor value</ion-label><ion-input type="text" formControlName="divisor_value" placeholder="divisor_value"readonly></ion-input>
+    </ion-item></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col><ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">hauteur</ion-label><ion-input type="text" formControlName="packet_length" placeholder="hauteur" [disabled]="hauteur"></ion-input></ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('packet_length').touched && registerForm.controls.packet_length.hasError('required')">{{'Champs
+          requis'}}</span><span *ngIf="registerForm.get('packet_length').invalid && registerForm.get('packet_length').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text></ion-col>
+    <ion-col><ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">longueur</ion-label><ion-input type="text" formControlName="packet_width" placeholder="longueur" [disabled]="longueur"></ion-input></ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('packet_width').touched && registerForm.controls.packet_width.hasError('required')">{{'Champs
+          requis'}}</span>
+    <span *ngIf="registerForm.get('packet_width').invalid && registerForm.get('packet_width').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+<ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">nombre de paquet</ion-label><ion-input type="text" formControlName="number" placeholder="nbr"></ion-input></ion-item><ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('number').touched && registerForm.controls.number.hasError('required')">{{'Champs
+          requis'}}</span><span *ngIf="registerForm.get('number').invalid && registerForm.get('number').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+      </ion-col>
+     
+      <ion-col>
+<ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">prix unitaire</ion-label><ion-input type="text" formControlName="packet_price" placeholder="packet_price" [disabled]="prix"></ion-input></ion-item> <ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('packet_price').touched && registerForm.controls.packet_price.hasError('required')">{{'Champs
+          requis'}}</span><span *ngIf="registerForm.get('packet_price').invalid && registerForm.get('packet_price').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+        </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-button (click)="addcoli()"  [disabled]="sendcolis"><ion-icon name="add-circle-outline"></ion-icon>add coli</ion-button>
+<ion-button (click)="lie()"><ion-icon name="eye-outline" color="dart"></ion-icon> voir colis</ion-button>
+    </div>
+   
+   
+  
+
+
+
+   
+<div class="montantrecu">
+ <h1><ion-icon name="cash-outline" slot="star"></ion-icon> Montant recu</h1>
+ <ion-grid>
+   <ion-row>
+  <ion-col>
+    <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating" class="labelMt">Augmentation </ion-label>
+      <ion-input type="text" formControlName="augmentation" placeholder="augmentation" readonly></ion-input>
+    </ion-item><ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('number').touched && registerForm.controls.number.hasError('required')">{{'Champs
+          requis'}}</span><span *ngIf="registerForm.get('packet_width').invalid && registerForm.get('packet_width').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+  </ion-col>
+  <ion-col>
+    <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating" class="labelMt">Reduction</ion-label>
+      <ion-input type="text" formControlName="reduction" placeholder="Reduction" readonly></ion-input>
+    </ion-item>
+  </ion-col>
+  <ion-col>
+    <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating" class="labelMt">Total</ion-label>
+      <ion-input type="text" formControlName="MTtotal" placeholder="Total" readonly></ion-input>
+    </ion-item>
+  </ion-col>
+  <ion-col>
+    <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating" class="labelMt">Reste</ion-label>
+      <ion-input type="text" formControlName="Rest" placeholder="Reste" readonly [color]="color"></ion-input>
+    </ion-item>
+  </ion-col>
+</ion-row>
+</ion-grid>
+
+ 
+  <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">Espece</ion-label><ion-input type="text" formControlName="espece" placeholder="" (ionChange)="calculRest()"></ion-input></ion-item><ion-text color="danger" class="text-error">
+       <span *ngIf="registerForm.get('espece').invalid && registerForm.get('espece').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+
+ 
+ <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">Cheque</ion-label> <ion-input type="text" formControlName="Cheque" placeholder="" (ionChange)="calculRest()"></ion-input></ion-item><ion-text color="danger" class="text-error">
+      <span *ngIf="registerForm.get('Cheque').invalid && registerForm.get('Cheque').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+
+  <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">Carte bleu</ion-label><ion-input type="text" formControlName="Cartebleue" placeholder="" (ionChange)="calculRest()"></ion-input></ion-item> <ion-text color="danger" class="text-error">
+       <span *ngIf="registerForm.get('Cartebleue').invalid && registerForm.get('Cartebleue').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+  <ion-item class="ion-no-padding transparent input">
+      <ion-label position="floating">Virement bancaire</ion-label><ion-input type="text" formControlName="Virementbancaire" placeholder="" (ionChange)="calculRest()"></ion-input></ion-item><ion-text color="danger" class="text-error">
+       <span *ngIf="registerForm.get('Virementbancaire').invalid && registerForm.get('Virementbancaire').touched ">
+     {{'veuillez entrer des numbre'}}
+    </span>
+      </ion-text>
+</div>
+<div class="sgnature">
+  
+    <span class="h5 mt-3">Signature *</span>
+<ion-button  color="danger" (click)="clearSignature(SignaturePad)">
+  <ion-icon name="trash-outline"></ion-icon>Effacer
+</ion-button>
+      
+      <br>
+    <div class="signature-container" >
+      <signature-pad #SignaturePad [options]="signaturePadOptions" (onEndEvent)="drawComplete(SignaturePad)">
+      </signature-pad>
+    </div>
+</div>
+<label>
+  <input type="checkbox" formControlName="purchase_order_isDraft" class="brouillon">
+  mettre au brouillon
+ 
+</label><br>
+
+    <ion-button type="submit" color="primary" ><ion-icon name="save-outline"></ion-icon>Enregistrer</ion-button>
+  </form>
+ 
+</ion-content>
+

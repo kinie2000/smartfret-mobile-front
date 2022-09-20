@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Commande un Emballage</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <ion-card class="no-box-shadow no-border-radius ion-no-margin ion-padding-bottom">
+          <ion-card-header class="ion-margin-top">
+            <!---Logo-->
+            <ion-img class="ion-padding-top border-radius" [src]="layoutData.logo"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+            <h1 class="text-size-xl text-color-light font-regular">{{layoutData.title}}</h1>
+            <h2 class="ion-padding-bottom text-size-md text-color-light font-regular">{{layoutData.subtitle}}</h2>
+          </ion-card-content>
+          <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+            <p [ngStyle]="{'color':'navajowhite','font-family': 'auto'}">{{layoutData.context}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col class="ion-no-padding" size="12" size-md="10" push-md="1">
+        <ion-text class="">
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <div class="blocks">
+                <div class="BlockEmb">
+                  <span class="nbEm">
+                    <span *ngIf="nbEmb<=9">0</span>{{nbEmb}}
+                  </span>
+                  <br>
+                  <span class="subEmb">Emballage(s)</span>
+                </div>
+                <div [ngStyle]="{'margin-left': '22px'}">
+                  <button class="color-primary ion-text-capitalize box-shadow btn btn-prymary"
+                    (click)="onChangeEmb(true)">
+                    <ion-icon name="add" class="btn-icon"></ion-icon>
+                  </button>
+                  <br>
+                  <button class="color-primary ion-text-capitalize box-shadow btn btn-danger"
+                    (click)="onChangeEmb(false)">
+                    <ion-icon name="remove" class="btn-icon"></ion-icon>
+                  </button>
+                </div>
+              </div>
+
+            </ion-col>
+          </ion-row>
+
+
+        </ion-text>
+      </ion-col>
+      <ion-col class="ion-padding" size="12" size-md="10" push-md="1">
+        <div class="ion-padding" size="12" size-md="10" push-md="1">
+          <div size="12" class="no-padding-start no-padding-end">
+            <ion-button type="submit" class="ion-margin-top default-button color-primary ion-text-capitalize box-shadow"
+              color="primary" expand="block" (click)="onSubmitFunc()">
+              {{layoutData.submit}}
+            </ion-button>
+
+          </div>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">
+      Copyright © 2022 SMARTFRET TRANSPORT /V2.0/ All rights reserved
+    </p>
+  </ion-toolbar>
+</ion-footer>

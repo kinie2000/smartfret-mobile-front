@@ -1,0 +1,83 @@
+.content1{
+    background-image:url(../../../../assets/imgs/icons/bgsearchs.jpg);
+    background-size: cover;
+}
+.content1-2{
+      background-color: #ffffffd4;
+    height: 100%;
+}
+
+ion-card-content{
+  overflow-y : scroll;
+}
+
+
+
+.imgColis{
+  
+}
+// assets/imgs/background/big-1.jpg
+
+/* Style component 1
+========================================================*/
+
+// ion-card {
+//   height: 350px;
+//   position: relative;
+//   &::after {
+//     content: "";
+//     display: block;
+//     height: 100%;
+//     width: 100%;
+//     top: 0;
+//     left: 0;
+//     position: absolute;
+//     pointer-events: none;
+//     // background: rgba(14, 33, 61, 0.7);
+//     // background: rgb(14,33,61);
+//     // background: linear-gradient(360deg, rgba(14,33,61,0.6) 20%, rgba(255,255,255,0) 100%);
+//     z-index: 5;
+//   }
+
+//   ion-card-content {
+//     position: absolute;
+//     bottom: 10px;
+//     left: 0;
+//     right: 0;
+//     z-index: 9999;
+
+//     h2,
+//     p {
+//       position: relative;
+//       z-index: 999;
+//     }
+//     .button-icon {
+//       color: #CFE1F2;
+//     }
+//   }
+// }
+
+  .ion-text{
+        color: black;
+        font-family: system-ui;
+        font-size: 13px;
+  }
+
+  ion-toolbar {
+    --background: var(--dv-background-accent-dark) !important;
+    ion-title{
+      text-align: justify;
+    }
+  }
+
+  .custom-font{
+    
+     font-size: 1em;
+  }
+
+   ion-footer{
+      --background: var(--dv-background-accent-dark) !important;
+    ion-toolbar{
+        font-size: 10px;
+      }
+   }

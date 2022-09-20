@@ -1,0 +1,40 @@
+<ion-content>
+  <!-- Page 1 -->
+  <ion-grid class="ion-no-padding" [ngStyle]="{'height': '100%'}">
+    <ion-row class="">
+      <ion-col size="12" size-md="12" class="ion-align-self-center">
+        <div>
+          <img class="animation-me imageAnim" #box [src]="data.logo">
+          <h1 class="animation-me  text-color-light ion-text-center">
+            {{data.title}}
+          </h1>
+          <h6 class="animation-me  text-color-light ion-text-center">
+            {{data.subtitle}}
+          </h6>
+        </div>
+        <div class="div1">
+          <ion-button color="primary" class="btn1 animation-btn1" (click)="openPage('signin')">
+            <span>{{data.btn1}}</span>
+          </ion-button>
+          <ion-button color="light" class="btn2 animation-btn2" (click)="openPage('colis')">
+            <ion-icon name="cube-outline" #icon class="icon"></ion-icon><span
+              [ngStyle]="{'margin-left':'5px'}">{{data.btn2}}</span>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-md="12" class="ion-align-self-center ion-text-center">
+        <ion-text class="text-color-light ion-text-center phoneText" (click)="openPage('reclamation')">
+          <ion-icon name="call" class="icon text-color-light"></ion-icon> <span
+            [ngStyle]="{'color':'white','margin-left':'5px'}"> Appelez moi</span>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12" size-md="12" class="ion-align-self-center">
+        <p class="ion-text-center custom-font p animation-p text-color-light"
+          [ngStyle]="{'font-size': '0.7em','padding':'0px'}">
+          Copyright © {{data.date}} Transport & Logistique <br> SMARTFRET TRANSPORT/ All rights reserved <br> Version:
+          {{data.version}}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

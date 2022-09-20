@@ -1,0 +1,98 @@
+<!-- lOGIN FROMA --COMPONENT 1 -->
+<ion-app class="ion-page">
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/signin"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+    <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+          <ion-card class="no-box-shadow no-border-radius ion-no-margin ion-padding-bottom">
+            <ion-card-header class="ion-margin-top">
+              <!---Logo-->
+              <ion-img class="ion-padding-top border-radius" [src]="data.logo"></ion-img>
+            </ion-card-header>
+            <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+              <h1 class="text-size-xl text-color-light font-regular">{{data.title}}</h1>
+              <h2 class="ion-padding-bottom text-size-md text-color-light font-regular">{{data.subtitle}}</h2>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="ion-no-padding" size="12" size-md="10" push-md="1">
+          <form action="" [formGroup]="editForm" (ngSubmit)="Submit()">
+            <div class="input-section">
+              <!---Input field email-->
+              <ion-item class="ion-no-padding transparent input" lines="none">
+                <ion-label position="floating">{{data.newpassword}}</ion-label>
+                <ion-input [type]='getPasswordType()' formControlName='pwd' value=''></ion-input>
+                <ion-icon class="icon-color-primary icon-font-sm" name="{{getIconByType()}}"
+                  (click)="changeVisibility()">
+                </ion-icon>
+              </ion-item>
+              <ion-text color="danger" class="text-error">
+                <span *ngIf="editForm.get('pwd').touched && editForm.controls.pwd.hasError('required')">{{'Champs
+                  requis'}}
+                </span>
+                <span *ngIf="editForm.get('pwd').touched && editForm.controls.pwd.hasError('pattern')">
+                  {{'Saisir au minimun 8 et au maximun 20 caractéres alpha-numérique'}} <br>
+                  {{'Les caractères spéciaux sont exclus (/,.§!*ù%£$¤~#@^...)'}}
+                </span>
+              </ion-text>
+
+              <ion-item class="ion-no-padding transparent input" lines="none">
+                <ion-label position="floating">{{data.oldpassword}}</ion-label>
+                <ion-input [type]='getPasswordType()' formControlName='pwdConf' value=''></ion-input>
+                <ion-icon class="icon-color-primary icon-font-sm" name="{{getIconByType()}}"
+                  (click)="changeVisibility()">
+                </ion-icon>
+              </ion-item>
+              <ion-text color="danger" class="text-error">
+                <span
+                  *ngIf="editForm.get('pwdConf').touched && editForm.controls.pwdConf.hasError('required')">{{'Champs
+                  requis'}}
+                </span>
+                <span
+                  *ngIf="editForm.get('pwdConf').touched && editForm.hasError('notSame') && !editForm.controls.pwdConf.hasError('required')">
+                  {{'Les mots de passe ne correspondent pas'}}
+                </span>
+              </ion-text>
+            </div>
+            <ion-row>
+              <ion-col class="ion-padding ion-text-center" size="12" size-md="10" push-md="1">
+                <!---Login ion-button-->
+                <ion-button class="ion-margin-top default-button color-primary ion-text-capitalize box-shadow"
+                  color="primary" type="submit" expand="block" (click)="activatedProgressBar()"
+                  [disabled]="editForm.invalid">
+                  {{data.reset}}
+                </ion-button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+        </ion-col>
+        <ion-col class="ion-padding ion-text-center" size="12" size-md="10" push-md="1">
+          <p class="ion-margin-top text-color-secondary text-size-md font-medium ion-padding-top">{{data.signuptext}}
+            <a class="text-color-primary text-size-md font-m" [routerLink]="['/signin']"
+              routerDirection="forward">{{data.signup}}</a>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <p class="ion-text-center custom-font">
+        {{data.footer}}
+      </p>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

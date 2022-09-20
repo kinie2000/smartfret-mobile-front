@@ -1,0 +1,88 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nouveau receveur</ion-title>
+    <ion-button (click)="dismiss()" fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+    <ion-content>
+<form (ngSubmit)="saveData()" [formGroup]="registerForm">
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Nom du receveur</ion-label>
+  <ion-input type="text"  formControlName="receiver_name"></ion-input>
+</ion-item>
+<ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('receiver_name').touched && registerForm.controls.receiver_name.hasError('required')">{{'Champs
+          requis'}}</span>
+      </ion-text> 
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Prenom du receveur</ion-label>
+  <ion-input type="text" formControlName="receiver_surname"></ion-input>
+</ion-item> 
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Mail du receveur</ion-label>
+  <ion-input type="text" formControlName="receiver_email"></ion-input>
+</ion-item> 
+<ion-text color="danger" class="text-error">
+  <span *ngIf="(registerFormControl.receiver_email.touched) && registerFormControl.receiver_email.errors?.required">
+    Champs requis
+  </span>
+  <span *ngIf="registerFormControl.receiver_email.touched && registerFormControl.receiver_email.errors?.email">
+    Entrez une adresse email valide
+  </span>
+</ion-text>
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">N° de cni</ion-label>
+  <ion-input type="text" formControlName="receiver_cni"></ion-input>
+</ion-item>
+<ion-text color="danger" class="text-error">
+
+  <span *ngIf="registerForm.get('receiver_cni').invalid && registerForm.get('receiver_cni').touched ">
+    {{'veuillez entrer un numero valide'}}
+  </span>
+</ion-text>
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Numero de telephone1</ion-label>
+  <ion-input type="text" formControlName="receiver_phone1"></ion-input>
+</ion-item> 
+<ion-text color="danger" class="text-error">
+  <span
+    *ngIf="registerForm.get('receiver_phone1').touched && registerForm.controls.receiver_phone1.hasError('required')">{{'Champs
+    requis'}}</span>
+    <span *ngIf="registerForm.get('receiver_phone1').invalid && registerForm.get('receiver_phone1').touched ">
+      {{'veuillez entrer un numero valide'}}
+    </span>
+</ion-text>
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Numero de telephone2</ion-label>
+  <ion-input type="text" formControlName="receiver_phone2"></ion-input>
+</ion-item> 
+<ion-text color="danger" class="text-error">
+  
+  <span *ngIf="registerForm.get('receiver_phone2').invalid && registerForm.get('receiver_phone2').touched ">
+    {{'veuillez entrer un numero valide'}}
+  </span>
+</ion-text>
+
+  <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Ville du receveur</ion-label>
+  <ion-input type="text" formControlName="receiver_city"></ion-input>
+</ion-item> 
+<ion-text color="danger" class="text-error">
+        <span
+          *ngIf="registerForm.get('receiver_city').touched && registerForm.controls.receiver_city.hasError('required')">{{'Champs
+          requis'}}</span>
+      </ion-text>
+   <ion-item class="ion-no-padding transparent input">
+  <ion-label position="floating">Adresse</ion-label>
+  <ion-input type="text" formControlName="receiver_adress"></ion-input>
+</ion-item> 
+    <ion-button type="submit" color="primary"  [disabled]="registerForm.invalid">valider</ion-button>
+    <ion-button (click)="dismiss()" color="danger">Cancel</ion-button>
+</form>
+</ion-content>
+
+

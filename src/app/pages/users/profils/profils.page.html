@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="connec">Mon Profil</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <ion-card class="no-box-shadow no-border-radius ion-no-margin ion-padding-bottom">
+          <ion-card-header class="ion-margin-top">
+            <!---Logo-->
+            <ion-img class="ion-padding-top border-radius" [src]="'assets/imgs/logo.png'"></ion-img>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col class="ion-no-padding" size="12" size-md="10" push-md="1" *ngIf="editForm">
+        <form action="" [formGroup]="editForm" (ngSubmit)="submit()">
+          <div class="input-section">
+            <!---Input field email-->
+            <ion-item class="ion-no-padding transparent input" lines="none">
+              <ion-label position="floating">Nom</ion-label>
+              <ion-input type="text" formControlName="nom" value='' [readonly]="(user.profil!='admin')? false:true">
+              </ion-input>
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error">
+              <span *ngIf="editForm.get('nom').touched && editForm.controls.nom.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+              <span *ngIf="editForm.get('nom').touched && editForm.controls.nom.hasError('pattern')">
+                Saisir des caractères alpha-numérique
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none">
+              <ion-label position="floating">Prenom</ion-label>
+              <ion-input type="text" formControlName="prenom" value='' [readonly]="(user.profil!='admin')? false:true">
+              </ion-input>
+              <ion-icon name="person"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error">
+              <ion-text color="danger" class="text-error">
+                <span *ngIf="editForm.get('prenom').touched && editForm.controls.prenom.hasError('required')">{{'Champs
+                  requis'}}
+                </span>
+                <span *ngIf="editForm.get('prenom').touched && editForm.controls.prenom.hasError('pattern')">
+                  Saisir des caractères alpha-numérique
+                </span>
+              </ion-text>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none">
+              <ion-label position="floating">Mail</ion-label>
+              <ion-input type="text" formControlName="mail" value=''></ion-input>
+              <ion-icon name="at-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error">
+              <span *ngIf="editForm.get('mail').touched && editForm.controls.mail.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+              <span *ngIf="editForm.get('mail').touched && editForm.controls.mail.hasError('email')">
+                Email invalide <br>
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none">
+              <ion-label position="floating">telephone</ion-label>
+              <ion-input type="text" formControlName="tel" value='' [readonly]="(user.profil!='admin')? false:true">
+              </ion-input>
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error">
+              <span *ngIf="editForm.get('tel').touched && editForm.controls.tel.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+              <span *ngIf="editForm.get('tel').touched && editForm.controls.tel.hasError('pattern')">
+                Numéro de téléphone incorrect
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">CNI</ion-label>
+              <ion-input type="text" formControlName="cni" value=''></ion-input>
+              <ion-icon name="journal-outline"></ion-icon>
+            </ion-item>
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">adresse</ion-label>
+              <ion-input type="text" formControlName="adress" value=''></ion-input>
+              <ion-icon name="location-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error" *ngIf="user.profil!='admin'">
+              <span *ngIf="editForm.get('adress').touched && editForm.controls.adress.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">autre adresse</ion-label>
+              <ion-input type="text" formControlName="adressO" value=''></ion-input>
+              <ion-icon name="location"></ion-icon>
+            </ion-item>
+
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">Ville</ion-label>
+              <ion-input type="text" formControlName="ville" value=''></ion-input>
+              <ion-icon name="trail-sign-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error" *ngIf="user.profil!='admin'">
+              <span *ngIf="editForm.get('ville').touched && editForm.controls.ville.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+              <span *ngIf="editForm.get('ville').touched && editForm.controls.ville.hasError('pattern')">
+                Saisir des caractères alpha-numérique
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">Pays</ion-label>
+              <ion-select formControlName="pays" value="" okText="Okay" cancelText="Dismiss">
+                <ion-select-option *ngFor="let country of country" value="{{country}}">{{country}}</ion-select-option>
+              </ion-select>
+              <ion-icon name="earth-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error" *ngIf="user.profil!='admin'">
+              <span *ngIf="editForm.get('pays').touched && editForm.controls.pays.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+              <span *ngIf="editForm.get('pays').touched && editForm.controls.pays.hasError('pattern')">
+                Saisir des caractères alpha-numérique
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none" *ngIf="user.profil!='admin'">
+              <ion-label position="floating">Code Postal</ion-label>
+              <ion-input type="number" formControlName="codePostal" value=''></ion-input>
+              <ion-icon name="earth-outline"></ion-icon>
+            </ion-item>
+            <ion-text color="danger" class="text-error" *ngIf="user.profil!='admin'">
+              <span
+                *ngIf="editForm.get('codePostal').touched && editForm.controls.codePostal.hasError('required')">{{'Champs
+                requis'}}
+              </span>
+            </ion-text>
+            <ion-item class="ion-no-padding transparent input" lines="none">
+              <ion-label position="floating">Mots de passe</ion-label>
+              <ion-input type="text" value='**********' readonly></ion-input>
+              <ion-icon name="eye-off-outline"></ion-icon>
+            </ion-item>
+          </div>
+          <div class="ion-padding" size="12" size-md="10" push-md="1" *ngIf="user.profil!='admin'">
+            <div size="12" class="no-padding-start no-padding-end">
+              <ion-button type="submit"
+                class="ion-margin-top default-button color-primary ion-text-capitalize box-shadow" color="primary">
+                Mettre à jour
+              </ion-button>
+            </div>
+          </div>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">
+      Copyright © 2022 SMARTFRET TRANSPORT /V2.0/ All rights reserved
+    </p>
+  </ion-toolbar>
+</ion-footer>

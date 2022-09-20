@@ -1,0 +1,91 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+//////////////////////////////////////////////////
+
+// Theme: Ionic UI Theme/Template App - Atom
+// Web Site: https://devspush.com/
+// Author: DEVSPUSH
+// Email support:  team@devspush.com or decouikit@gmail.com
+
+//////////////////////////////////////////////////
+
+/* COLOR COMBINATION FOR RED THEME
+=============================================*/
+
+.red {
+    /* Settings Fonts Size And Icon Size
+    =======================================================
+    =======================================================*/
+    --fallback-color: red;
+    --h1-font-size: 24px;
+    --h2-font-size: 18px;
+    --h3-font-size: 16px;
+    --h4-font-size: 14px;
+    --h5-font-size: 12px;
+    --h6-font-size: 10px;
+    --text-font-size: 12px;
+
+    /* Settings Fonts Size Icon
+    =======================================================
+    =======================================================*/
+    --icon-size-small: 20px;
+    --icon-size-medium: 32px;
+    --icon-size-large: 60px;
+
+    /* Settings Font Span
+    =======================================================
+    =======================================================*/
+    --span-size-small: 12px;
+    --span-size-medium: 24px;
+    --span-size-large: 30px;
+
+    /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+    --dv-background-primary-basic: #F8F3F3;
+    --dv-background-primary: #ffffff;
+    --dv-background-secondary: #1E97D9;
+    --dv-background-tertiary: #78C0E8;
+    --dv-background-accent-light: #9F4F4F;
+    --dv-background-accent: #D14141;
+    --dv-background-accent-dark: #801515;
+
+     /* Settings Border Color
+    =======================================================
+    =======================================================*/
+    --dv-background-border: #E8EDF2;
+
+    /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+    --dv-text-primary: #0E213D;
+    --dv-text-secondary: #556783;
+    --dv-text-accent: #D14141;
+    --dv-text-light: #fff;
+
+
+    /* Settings Size Avatar
+    =======================================================
+    =======================================================*/
+    --size-avatar: 40px;
+
+    /* Settings Size Thumbnail
+  =======================================================
+  =======================================================*/
+    --size-thumbnail: 100px;
+
+    /* Settings Border Radius
+    =======================================================
+    =======================================================*/
+    --border-radius: 4px;
+
+    /* Settings Color Icon
+    =======================================================
+    =======================================================*/
+    --dv-icon-color-primary: #556783;
+    --dv-icon-color-secondary: #1DB293;
+    --dv-icon-color-accent: #D14141;
+    --dv-icon-color-accent-dark: #0E213D;
+    --dv-icon-color-light: #fff;
+}

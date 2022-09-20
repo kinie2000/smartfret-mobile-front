@@ -1,0 +1,28 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header translucent="true">
+    <ion-toolbar color="dark">
+      <ion-title class="ion-text-capitalize">Liste des colis</ion-title>
+      <ion-button (click)="dismiss()" fill="clear" slot="end" >
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+        
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+
+  <ion-content [fullscreen]="false">
+  <ion-card *ngFor="let item of Idclt" >
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>{{item.packet_title}}</ion-label>
+      <ion-button slot="end"  (click)="suprimer(item)" color="danger"><ion-icon slot="icon-only" name="trash-outline" ></ion-icon></ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+    <ion-item>{{item.packet_price| currency:'EUR'}}</ion-item>
+    </ion-card-content>
+  </ion-card>
+  </ion-content>
+</ion-app>
+ 

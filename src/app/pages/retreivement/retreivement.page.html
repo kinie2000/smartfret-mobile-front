@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Enlèvement</ion-title>
+  </ion-toolbar>
+  <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <ion-card class="no-box-shadow no-border-radius ion-no-margin ion-padding-bottom">
+          <ion-card-header class="ion-margin-top">
+            <!---Logo-->
+            <ion-img class="ion-padding-top border-radius" [src]="layoutData.logo"></ion-img>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+            <h1 class="text-size-xl text-color-light font-regular">{{layoutData.title}}</h1>
+            <h2 class="ion-padding-bottom text-size-md text-color-light font-regular">{{layoutData.subtitle}}</h2>
+          </ion-card-content>
+          <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+            <p [ngStyle]="{'color':'navajowhite','font-family': 'auto'}">{{layoutData.context}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col class="ion-no-padding" size="12">
+        <form action="" [formGroup]="editform" (ngSubmit)="onSubmitFunc()">
+          <ion-row>
+            <ion-col class="ion-no-padding" size="12" size-md="10" push-md="1">
+              <div class="input-section">
+                <!--- Date -->
+                <ion-item class="ion-no-padding transparent input" lines="none">
+                  <ion-label position="floating">Date et Heure de retrait souhaité 1</ion-label>
+                  <ion-datetime required value="" #mydt1 [pickerOptions]="customPickerOptions1" formControlName="dtRet1"
+                    displayFormat="DD MMM YYYY À hh:mm A" min='{{dateLocalFormat}}'>
+                  </ion-datetime>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                </ion-item>
+                <ion-text color="danger" class="text-error">
+                  <span
+                    *ngIf="editform.get('dtRet1').touched && editform.controls.dtRet1.hasError('required')">{{'Champs
+                    requis'}}
+                  </span>
+                </ion-text>
+                <ion-item class="ion-no-padding transparent input" lines="none">
+                  <ion-label position="floating">Date et heure de retrait souhaité 2</ion-label>
+                  <ion-datetime required value="" #mydt2 [pickerOptions]="customPickerOptions2" formControlName="dtRet2"
+                    displayFormat="DD MMM YYYY À hh:mm A" min='{{dateLocalFormat}}'>
+                  </ion-datetime>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                </ion-item>
+                <ion-text color="danger" class="text-error">
+                  <span
+                    *ngIf="editform.get('dtRet2').touched && editform.controls.dtRet2.hasError('required')">{{'Champs
+                    requis'}}
+                  </span>
+                </ion-text>
+                <ion-item class="ion-no-padding transparent input" lines="none">
+                  <ion-label position="floating">Date et heure de retrait souhaité 3</ion-label>
+                  <ion-datetime value="" #mydt3 [pickerOptions]="customPickerOptions3" formControlName="dtRet3"
+                    displayFormat="DD MMM YYYY À hh:mm A" min='{{dateLocalFormat}}'>
+                  </ion-datetime>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                </ion-item>
+
+
+                <!--- adresse -->
+                <ion-item class="ion-no-padding transparent input" lines="none">
+                  <ion-label position="floating">Adresse</ion-label>
+                  <ion-input required type="text" formControlName="adresse"
+                    [value]="'11 rue de leuze, 78711 Mantes-La-ville'">
+                  </ion-input>
+                  <ion-icon name="location-outline"></ion-icon>
+                </ion-item>
+                <ion-text color="danger" class="text-error">
+                  <span
+                    *ngIf="editform.get('adresse').touched && editform.controls.adresse.hasError('required')">{{'Champs
+                    requis'}}
+                  </span>
+                  <span *ngIf="editform.get('adresse').touched && editform.controls.adresse.hasError('pattern')">
+                    {{'Saisir au minimun 5 et au maximun 50 caractères alpha-numériques'}}
+                  </span>
+                </ion-text>
+                <!---Description de la marchandise-->
+                <ion-item class="ion-no-padding transparent input" lines="none">
+                  <ion-label position="floating">{{layoutData.description}}</ion-label>
+                  <ion-textarea required rows="4" formControlName="descr">
+                  </ion-textarea>
+                  <ion-icon name="document-text-outline"></ion-icon>
+                </ion-item>
+                <ion-text color="danger" class="text-error">
+                  <span *ngIf="editform.get('descr').touched && editform.controls.descr.hasError('required')">{{'Champs
+                    requis'}}
+                  </span>
+                  <span *ngIf="editform.get('descr').touched && editform.controls.descr.hasError('pattern')">
+                    {{'Saisir au maximun 255 caractères'}}
+                  </span>
+                </ion-text>
+                <!--- number -->
+                <ion-row>
+                  <ion-col size="12" class="ion-no-padding" size-sm="3">
+                    <ion-item class="ion-no-padding transparent select" lines="none">
+                      <ion-label position="floating">Code</ion-label>
+                      <ion-select formControlName="code" required>
+                        <ion-select-option value="+237">+237 CMR</ion-select-option>
+                        <ion-select-option value="+33">+33 FR</ion-select-option>
+                        <ion-select-option value="+32">+32 BEL</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-text color="danger" class="text-error">
+                      <span
+                        *ngIf="editform.get('code').touched && editform.controls.code.hasError('required')">{{'Champs
+                        requis'}}</span>
+                    </ion-text>
+                  </ion-col>
+                  <ion-col size="12" class="ion-no-padding" size-sm="9">
+                    <ion-item class="ion-no-padding transparent input" lines="none" [ngStyle]="{'margin-top': '1px'}">
+                      <ion-label position="floating">Téléphone</ion-label>
+                      <ion-input required type="text" formControlName="tel" placeholder="" value="">
+                      </ion-input>
+                      <ion-icon name="phone-portrait-outline"></ion-icon>
+                    </ion-item>
+                    <ion-text color="danger" class="text-error">
+                      <span *ngIf="editform.get('tel').touched && editform.controls.tel.hasError('required')">{{'Champs
+                        requis'}}</span>
+                      <span *ngIf="editform.get('tel').touched && editform.controls.tel.hasError('pattern')">{{'Saisir
+                        un numéro de télephone correct Exemple:6XXXXXXXX'}}
+                      </span>
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+            <ion-col class="ion-padding" size="12" size-md="10" push-md="1">
+              <ion-col size="12" class="no-padding-start no-padding-end">
+                <!---Login ion-button-->
+                <ion-button type="submit"
+                  class="ion-margin-top default-button color-primary ion-text-capitalize box-shadow" expand="block"
+                  color="primary" [disabled]="editform.invalid" (click)="activatedProgressBar()">
+                  {{layoutData.submit}}</ion-button>
+              </ion-col>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">
+      Copyright © 2022 SMARTFRET TRANSPORT /V2.0/ All rights reserved
+    </p>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,113 @@
+/* Style component 1
+========================================================*/
+  // .ion-page
+  // {
+  //   background-color: #44444442;
+  // }
+
+  ion-header{
+    .connec{
+      font-size: 23px;
+      font-family: system-ui;
+      margin-left: 7px;
+    }
+    .icon1
+    {
+      font-size: 25px;
+    }
+  }
+ion-toolbar {
+    --background: var(--dv-background-accent-dark) !important;
+    ion-title{
+      text-align: justify;
+    }
+  }
+
+  .custom-font{
+    
+     font-size: 1em;
+  }
+  
+  ion-content {
+    ion-grid,
+    ion-row {
+  
+      ion-card {
+        --background: var(--dv-background-accent-dark);
+        .text-title{
+          // text-shadow: 3px 0px black;
+          font-family: Montserrat Alternates;
+        }
+      }
+  
+      ion-img {
+        width: 80px;
+        text-align: center;
+        margin: 0 auto;
+      }
+  
+      .input-section {
+        background: var(--dv-background-primary-basic);
+        width: calc(100% - 32px) !important;
+        margin: 16px;
+        padding: 8px 16px 24px 16px;
+        border-radius: 4px;
+        border: 1px solid var(--dv-background-border);
+      }
+  
+      ion-item {
+        border-bottom: 1px solid #CFE1F2;
+  
+        ion-input {
+          --padding-end: 8px;
+        }
+  
+        ion-icon {
+          position: absolute;
+          right: 0;
+          bottom: 8px
+        }
+      }
+  
+      ion-label {
+        margin: 8px 0;
+      }
+      
+      .input {
+        margin-bottom: 20px;
+      }
+
+      .item-has-focus {
+        ion-label {
+          color: #556783 !important;
+        }
+      }
+  
+  
+      .facebook-button {
+        --background: #3B5999;
+        --background-hover: #3B5999 !important;
+      }
+  
+      .twitter-button {
+        --background: #1EA1F3;
+        --background-hover: #1EA1F3 !important;
+      }
+    }
+  
+    .ion-margin-top {
+      margin-top: 5px !important;
+    }
+    
+  }
+
+  .text-error{
+    font-size: 0.8em;
+  }
+
+  ion-footer{
+    ion-toolbar{
+        font-size: 10px;
+      }
+  }
+  

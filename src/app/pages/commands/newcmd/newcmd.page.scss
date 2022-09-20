@@ -1,0 +1,64 @@
+body
+{
+    font-family: sans-serif;
+    
+}
+.contenu
+{
+
+}
+.text-error{
+    font-size: 0.8em;
+  }
+  .typedecolis
+  {
+    font-size: 20px;
+
+  }
+  .montantrecu h1,.info-perso h1,.info-typecolis h1
+  {
+    
+      color: rgb(4, 77, 119);
+   font-size: 30px;
+   margin-bottom: 25px;
+  }
+  .btnadd
+  {
+    font-size: 20px;
+    color: blue;
+  }
+    .grid-header {
+      background-color: #404040;
+      color: rgb(255, 255, 255);
+    }
+    .btnsign
+    {
+      background-color: red;
+      width: 100px;
+      height: 20px;
+      border-radius: 10px;
+    }
+    .signature-container
+    {
+      background-color: rgb(236, 236, 236);
+    }
+    .labelMt
+    {
+      font-size: 15px;
+    }
+    .clasColi
+    {
+      margin-left: 15px;
+      margin-top: 5px;
+    }
+    .montantrecu,
+    .info-perso,
+    .info-typecolis
+    {
+      margin-bottom: 30px;
+    }
+    .brouillon
+    {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }

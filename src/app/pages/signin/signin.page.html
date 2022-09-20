@@ -1,0 +1,114 @@
+<!-- lOGIN FROMA --COMPONENT 1 -->
+<ion-app class="ion-page">
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar class="transparent">
+      <ion-buttons slot="start">
+        <ion-back-button [defaultHref]="'SmartFret'"></ion-back-button>
+      </ion-buttons>
+      <!-- <ion-icon name="log-in-outline"></ion-icon> -->
+      <ion-title>
+        <!-- <ion-icon name="log-in-outline" class="icon1"></ion-icon>  -->
+        <span class="connec">Connexion</span>
+      </ion-title>
+    </ion-toolbar>
+    <ion-progress-bar type="indeterminate" *ngIf="progressBar"></ion-progress-bar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+          <ion-card class="no-box-shadow no-border-radius ion-no-margin ion-padding-bottom">
+            <ion-card-header class="ion-margin-top">
+              <!---Logo-->
+              <ion-img class="ion-padding-top border-radius" [src]="layoutData.logo"></ion-img>
+            </ion-card-header>
+            <ion-card-content class="ion-text-center ion-margin-top ion-margin-bottom">
+              <h1 class="text-size-xl text-color-light font-regular">{{layoutData.title}}</h1>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col class="ion-no-padding" size="12" size-md="10" push-md="1">
+          <form action="" [formGroup]="editForm" (ngSubmit)="onSubmitFunc()">
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <ion-col size="3"></ion-col>
+                <ion-col size="2">
+                  <h5>Client</h5>
+                </ion-col>
+                <ion-col size="2">
+                  <ion-icon [name]="radio?'radio-button-on-outline':'radio-button-off-outline'"
+                    [ngStyle]="{'color':radio?'#1669BC':'#807E7E','font-size':'1.5em'}" (click)="changeEtatRadio()">
+                  </ion-icon>
+                </ion-col>
+                <ion-col size="2">
+                  <h5>Autre</h5>
+                </ion-col>
+                <ion-col size="2">
+                  <ion-icon [name]="!radio?'radio-button-on-outline':'radio-button-off-outline'"
+                    [ngStyle]="{'color':!radio?'#1669BC':'#807E7E','font-size':'1.5em'}" (click)="changeEtatRadio()">
+                  </ion-icon>
+                </ion-col>
+                <ion-col size="3"></ion-col>
+              </ion-row>
+            </ion-grid>
+
+
+            <div class="input-section">
+              <!---Input field email-->
+
+              <ion-item class="ion-no-padding transparent input" lines="none">
+                <ion-label position="floating">{{input1.label}}</ion-label>
+                <ion-input [type]="input1.type" formControlName='login' value=''></ion-input>
+                <ion-icon [name]="input1.icon"></ion-icon>
+              </ion-item>
+              <ion-text color="danger" class="text-error">
+                <span *ngIf="editForm.get('login').touched && editForm.controls.login.hasError('required')">{{'Champs
+                  requis'}}</span>
+                <span *ngIf="editForm.get('login').touched && editForm.controls.login.hasError('pattern')">{{'Saisir un
+                  numéro de télephone correct'}}
+                </span>
+                <span *ngIf="editForm.get('login').touched && editForm.controls.login.hasError('email')">{{'Adresse mail
+                  incorrecte'}}
+                </span>
+              </ion-text>
+              <ion-item class="ion-no-padding transparent input" lines="none">
+                <ion-label position="floating">Mots de passe</ion-label>
+                <ion-input [type]='getPasswordType()' formControlName='password' value=''></ion-input>
+                <ion-icon class="icon-color-primary icon-font-sm" name="{{getIconByType()}}"
+                  (click)="changeVisibility()">
+                </ion-icon>
+              </ion-item>
+              <ion-text color="danger" class="text-error">
+                <span
+                  *ngIf="editForm.get('password').touched && editForm.controls.password.hasError('required')">{{'Champs
+                  requis'}}</span>
+              </ion-text>
+            </div>
+            <div class="ion-padding" size="12" size-md="10" push-md="1">
+              <div size="12" class="no-padding-start no-padding-end">
+                <ion-button type="submit"
+                  class="ion-margin-top default-button color-primary ion-text-capitalize box-shadow" color="primary"
+                  (click)="activatedProgressBar()" expand="block" [disabled]="editForm.invalid">
+                  {{layoutData.submit}}
+                </ion-button>
+              </div>
+              <p class="ion-text-center custom-font">
+                <a class="foot-text" (click)="openPage('FgP')">{{'Mots de passe oublié ?'}}</a>
+              </p>
+            </div>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <p class="ion-text-center custom-font">
+        {{layoutData.footer}}
+      </p>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

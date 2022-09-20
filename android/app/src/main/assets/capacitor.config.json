@@ -1,0 +1,23 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "SMARTFRET TRANSPORT",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"cordova": {
+		"preferences": {
+			"ScrollEnabled": "false",
+			"android-minSdkVersion": "22",
+			"android-targetSdkVersion": "29",
+			"BackupWebStorage": "none",
+			"SplashMaintainAspectRatio": "true",
+			"FadeSplashScreenDuration": "300",
+			"SplashShowOnlyFirstTime": "false",
+			"SplashScreen": "screen",
+			"SplashScreenDelay": "9000",
+			"loadUrlTimeoutValue": "700000",
+			"DisallowOverscroll": "true",
+			"ShowSplashScreenSpinner": "false",
+			"WKWebViewOnly": "true"
+		}
+	}
+}
